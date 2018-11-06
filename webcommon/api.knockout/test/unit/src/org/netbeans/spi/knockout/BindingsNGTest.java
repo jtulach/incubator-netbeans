@@ -21,6 +21,7 @@ package org.netbeans.spi.knockout;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
+import org.netbeans.api.scripting.Scripting;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import static org.testng.Assert.*;
@@ -36,7 +37,7 @@ public class BindingsNGTest {
     }
 
     @BeforeMethod public void initEngine() {
-        ScriptEngineManager sem = new ScriptEngineManager();
+        ScriptEngineManager sem = Scripting.createManager();
         eng = sem.getEngineByMimeType("text/javascript");
     }
 

@@ -39,6 +39,7 @@ import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 import jdk.nashorn.api.scripting.NashornScriptEngineFactory;
 import jdk.nashorn.api.scripting.ScriptObjectMirror;
+import org.netbeans.api.scripting.Scripting;
 import org.netbeans.core.network.utils.SimpleObjCache;
 import org.netbeans.core.network.proxy.pac.PacHelperMethods;
 import org.netbeans.core.network.proxy.pac.PacJsEntryFunction;
@@ -333,7 +334,7 @@ public class NbPacScriptEvaluator implements PacScriptEvaluator {
     private ScriptEngine getGenericJSScriptEngine() {
         // The result of the statements below may be Rhino, but more likely
         // - since Java 8 - it will be a Nashorn engine.
-        ScriptEngineManager factory = new ScriptEngineManager();
+        ScriptEngineManager factory = Scripting.createManager();
         return factory.getEngineByName("JavaScript");
     }
     
